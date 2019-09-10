@@ -1,5 +1,11 @@
 # Movies
 
+## Development
+
+Used the following sources:
+https://www.npmjs.com/package/ngx-useful-swiper
+https://idangero.us/swiper/demos/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
 
 ## Development server

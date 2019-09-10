@@ -1,0 +1,151 @@
+<div class="body">
+  <!-- Latest Movies -->
+  <div class="grid-row header">
+    <div class="tablet:grid-col-9 ">
+      <div id="latestMovieTitle" class="title">Latest Movies</div>
+    </div>
+    <div class="grid-col-6 tablet:grid-col-3">
+      <div class="date"></div>
+    </div>
+  </div>
+
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-fill">
+      <div class="trendcard">
+        <swiper [config]="config" class="swiper-container">
+          <div class="swiper-wrapper" id="latestMovies">
+            <div class="swiper-slide" *ngFor="let movie of latestMovies" (click)="overview(movie)">
+              <div class="movie_card" >
+                <div class="movie_pic">
+                  <img [src]="movie.posterPath">
+                </div>
+                <div class="movie_content">
+                  <h3>{{movie.title}}</h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </swiper>
+      </div>
+    </div>
+  </div>
+
+  <!-- Most Popular Movies -->
+  <div class="grid-row header">
+    <div class="tablet:grid-col-9">
+      <div id="popularMovieTitle" class="title">Most Popular</div>
+    </div>
+    <div class="grid-col-6 tablet:grid-col-3">
+      <div class="date"></div>
+    </div>
+  </div>
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-fill">
+      <div class="trendcard">
+        <swiper [config]="config" class="swiper-container">
+          <div class="swiper-wrapper" id="popularMovies">
+            <div class="swiper-slide" *ngFor="let movie of popularMovies" (click)="overview(movie)">
+              <div class="movie_card" >
+                <div class="movie_pic">
+                  <img [src]="movie.posterPath">
+                </div>
+                <div class="movie_content">
+                  <h3>{{movie.title}}</h3>
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </swiper>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- coming soon Movies -->
+  <div class="grid-row header">
+    <div class="tablet:grid-col-9 ">
+      <div id="upcomingMovieTitle" class="title">Coming Soon</div>
+    </div>
+    <div class="grid-col-6 tablet:grid-col-3">
+      <div class="date"></div>
+    </div>
+  </div>
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-fill">
+      <div class="trendcard">
+        <swiper [config]="config" class="swiper-container">
+          <div class="swiper-wrapper" id="upcomingMovies">
+            <div class="swiper-slide" *ngFor="let movie of comingSoonMovies" (click)="overview(movie)">
+              <div class="movie_card" >
+                <div class="movie_pic">
+                  <img [src]="movie.posterPath">
+                </div>
+                <div class="movie_content">
+                  <h3>{{movie.title}}</h3>
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </swiper>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Critics Reviewed -->
+  <div class="grid-row header">
+    <div class="tablet:grid-col-9 ">
+      <div id="criticMovieTitle" class="title">Critics Reviewed</div>
+    </div>
+    <div class="grid-col-6 tablet:grid-col-3">
+      <div class="date"></div>
+    </div>
+  </div>
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-fill">
+      <div class="trendcard">
+        <swiper [config]="config" class="swiper-container">
+          <div class="swiper-wrapper" id="criticMovies">
+            <div class="swiper-slide" *ngFor="let movie of criticMovies" (click)="overview(movie)">
+              <div class="movie_card" >
+                <div class="movie_pic">
+                  <img [src]="movie.posterPath">
+                </div>
+                <div class="movie_content">
+                  <h3>{{movie.title}}</h3>
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </swiper>
+
+      </div>
+    </div>
+  </div>
+
+</div>
