@@ -1,6 +1,10 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-html, body {
+html,
+body {
   position: relative;
   height: 100%;
 }
@@ -8,7 +12,11 @@ body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color:#000;
+  color: #000;
   margin: 0;
   padding: 0;
+}
+
+.fill-space {
+  flex: 1 1 auto;
 }

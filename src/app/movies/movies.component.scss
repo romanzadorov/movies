@@ -1,3 +1,8 @@
+swiper {
+  height: 300px;
+  width: 200px;
+}
+
 .swiper-container {
   width: 100%;
   height: 100%;
@@ -20,149 +25,6 @@
   -webkit-align-items: center;
   align-items: center;
 }
-.swiper-wrapper {
-  display: inline-flex;
-  margin-bottom: 55px;
-}
-
-
-
-.grid-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.grid-row.grid-gap {
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-}
-
-.tablet\:grid-col-9 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 75%;
-}
-
-[class*='grid-col'] {
-  position: relative;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.grid-col {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 0px;
-  flex: 1 0 0;
-  width: auto;
-  max-width: 100%;
-}
-
-.grid-col-auto {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: auto;
-  max-width: 100%;
-}
-
-.grid-col-fill {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 0px;
-  flex: 1 0 0;
-  width: auto;
-  max-width: 100%;
-}
-
-.grid-col-1 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 8.33333%;
-}
-
-.grid-col-2 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 16.66667%;
-}
-
-.grid-col-3 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 25%;
-}
-
-.grid-col-4 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 33.33333%;
-}
-
-.grid-col-5 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 41.66667%;
-}
-
-.grid-col-6 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 50%;
-}
-
-.grid-col-7 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 58.33333%;
-}
-
-.grid-col-8 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 66.66667%;
-}
-
-.grid-col-9 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 75%;
-}
-
-.grid-col-10 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 83.33333%;
-}
-
-.grid-col-11 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 91.66667%;
-}
-
-.grid-col-12 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 100%;
-}
-
-
 
 .header {
   background-color: #3d4551;
@@ -172,19 +34,14 @@
   padding-top: 6px;
   padding-bottom: 6px;
   margin-bottom: 5px;
-
 }
-
 
 .title {
   text-align: left;
   padding-left: 20px;
   font-family: sans-serif;
   font-size: 26px;
-
 }
-
-
 
 .date {
   padding-top: 7px;
@@ -195,237 +52,15 @@
   font-size: 18px;
 }
 
-@media all and (min-width: 40em) {
-  .tablet\:grid-col {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0px;
-    flex: 1 0 0;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .tablet\:grid-col-fill {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0px;
-    flex: 1 0 0;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .tablet\:grid-col-auto {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .tablet\:grid-col-1 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 8.33333%;
-  }
-
-  .tablet\:grid-col-2 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 16.66667%;
-  }
-
-  .tablet\:grid-col-3 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 25%;
-  }
-
-  .tablet\:grid-col-4 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 33.33333%;
-  }
-
-  .tablet\:grid-col-5 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 41.66667%;
-  }
-
-  .tablet\:grid-col-6 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 50%;
-  }
-
-  .tablet\:grid-col-7 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 58.33333%;
-  }
-
-  .tablet\:grid-col-8 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 66.66667%;
-  }
-
-  .tablet\:grid-col-9 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 75%;
-  }
-
-  .tablet\:grid-col-10 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 83.33333%;
-  }
-
-  .tablet\:grid-col-11 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 91.66667%;
-  }
-
-  .tablet\:grid-col-12 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 100%;
-  }
-}
-
-@media all and (min-width: 64em) {
-  .desktop\:grid-col {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0px;
-    flex: 1 0 0;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .desktop\:grid-col-fill {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 0px;
-    flex: 1 0 0;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .desktop\:grid-col-auto {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 100%;
-  }
-
-  .desktop\:grid-col-1 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 8.33333%;
-  }
-
-  .desktop\:grid-col-2 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 16.66667%;
-  }
-
-  .desktop\:grid-col-3 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 25%;
-  }
-
-  .desktop\:grid-col-4 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 33.33333%;
-  }
-
-  .desktop\:grid-col-5 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 41.66667%;
-  }
-
-  .desktop\:grid-col-6 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 50%;
-  }
-
-  .desktop\:grid-col-7 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 58.33333%;
-  }
-
-  .desktop\:grid-col-8 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 66.66667%;
-  }
-
-  .desktop\:grid-col-9 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 75%;
-  }
-
-  .desktop\:grid-col-10 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 83.33333%;
-  }
-
-  .desktop\:grid-col-11 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 91.66667%;
-  }
-
-  .desktop\:grid-col-12 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .date {
     text-align: left;
     padding-top: 0px;
     font-size: 16px;
-
   }
 }
 
 .cards {
-
   background-color: white;
   margin-top: 15px;
 
@@ -440,8 +75,6 @@
   color: #21827f;
   padding-bottom: 6px;
   padding-top: 25%;
-
-
 }
 
 .card_title {
@@ -457,7 +90,6 @@
 }
 
 .chart_card {
-
   min-height: 95.5%;
   max-height: 95.5%;
   border: none;
@@ -480,13 +112,17 @@
 }
 
 .topcard {
-
   background-color: white;
   margin-top: 15px;
   padding: 20px;
   text-align: center;
   border: none;
   box-shadow: 2px 3px 4px #989898;
+}
+
+.body {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 td {
@@ -501,7 +137,6 @@ tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
 
-
 .trendcard {
   background-color: white;
   margin-top: 15px;
@@ -514,7 +149,7 @@ tr:nth-child(odd) {
 .trend_unit {
   text-align: center;
   font-size: 34px;
-  color: #0A1864;
+  color: #0a1864;
   font-family: sans-serif;
 }
 
@@ -529,10 +164,9 @@ tr:nth-child(odd) {
 .trend_title {
   font-family: sans-serif;
   font-weight: bold;
-  color: #8C8C8C;
+  color: #8c8c8c;
   font-size: 20px;
   max-width: 95%;
-
 }
 
 .arrow_icon {
@@ -543,18 +177,23 @@ tr:nth-child(odd) {
 }
 
 .movie_card {
-  background-color: #3D4550;
+  background-color: #3d4550;
   text-align: center;
   margin-left: 10px;
   box-shadow: 3px 5px 4px #989898;
   color: white;
   height: 393px;
-  width: min-content;
 }
 
 .movie_pic {
   width: 200px;
-
+  height: 300px;
+  img {
+    vertical-align: middle;
+    border-style: none;
+    height: -webkit-fill-available;
+    width: max-content;
+  }
 }
 
 .movie_content {
@@ -564,11 +203,13 @@ tr:nth-child(odd) {
 h3 {
   font-family: sans-serif;
   font-size: 20px;
-  margin-bottom: -1px;
 }
 
 p {
   font-family: sans-serif;
   font-size: 14px;
+}
 
+.movieTitle {
+  max-width: fit-content;
 }

@@ -1,1 +1,70 @@
-<router-outlet></router-outlet>
+<header class="usa--header usa--header--basic" role="banner">
+    <div class="usa--nav-container">
+      <div>
+        <mat-toolbar class="usa-header-style">
+          <div class="logo" id="basic-logo">
+            <img class="img-logo" src="../assets/img/tv_200.jpeg" alt="logo">
+          </div>
+          <span class="fill-space"></span>
+          <div fxShow="true" fxHide.gt-sm="true">
+            <button mat-icon-button id="menu" (click)="sidenav.toggle()">
+              <mat-icon><i class="fas fa-bars"></i></mat-icon>
+            </button>
+          </div>
+          <span class="example-spacer"></span>
+          <nav fxShow="true" fxHide.lt-md="true" role="navigation" class="" id="headerLinks">
+            <ul class="usa-nav__primary">
+  
+              <ng-container>
+                <li class="usa-nav__primary-item">
+                  <a mat-button id="user" class="usa-nav__link" routerLink="">
+                    <span>Users</span>
+                  </a>
+                </li>
+
+                <li class="usa-nav__primary-item">
+                  <a mat-button id="dashboard" class="usa-nav__link" routerLink="">
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+              </ng-container>
+            </ul>
+          </nav>
+        </mat-toolbar>
+        <mat-sidenav-container fxFlexFill class="container">
+          <mat-sidenav
+                position="end"
+                color="primary"
+                #sidenav
+                fxLayout="column"
+                mode="over"
+                opened="false"
+                fxHide.gt-sm="true">
+            <nav fxLayout="column">
+              <ul class="">
+  
+                <ng-container>
+                    <li class="usa-nav__primary-item">
+                      <a mat-button id="user" class="usa-nav__link" routerLink="">
+                        <span>Users</span>
+                      </a>
+                    </li>
+    
+                    <li class="usa-nav__primary-item">
+                      <a mat-button id="dashboard" class="nav__link" routerLink="">
+                        <span>Dashboard</span>
+                      </a>
+                    </li>
+                  </ng-container>
+              </ul>
+            </nav>
+          </mat-sidenav>
+          <mat-sidenav-content fxFlexFill>
+            <main id="main-content">
+              <router-outlet></router-outlet>
+            </main>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
+    </div>
+  </header>
