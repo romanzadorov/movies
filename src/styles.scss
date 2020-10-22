@@ -2,6 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "vars.scss";
 
 html,
 body {
@@ -9,14 +10,96 @@ body {
   height: 100%;
 }
 body {
-  background: #eee;
+  background-color: $backgroundColor;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #000;
+  color: $backgroundColor;
   margin: 0;
   padding: 0;
 }
 
+h3 {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
 .fill-space {
   flex: 1 1 auto;
+}
+
+.container {
+  background-color: $backgroundColor;
+}
+
+.header-toolbar {
+  background-color: $backgroundColor;
+}
+
+.mat-icon-button {
+  color: white;
+}
+
+.trendcard {
+  background-color: $backgroundColor;
+  margin-top: 2px;
+  padding: 18px;
+  border: none;
+  -webkit-box-shadow: 2px 3px 4px #989898;
+  box-shadow: 2px 3px 4px #989898;
+}
+
+.trend_unit {
+  text-align: center;
+  font-size: 34px;
+  color: #0a1864;
+  font-family: sans-serif;
+}
+
+.trend_label {
+  margin-top: -7px;
+  text-align: center;
+  padding-bottom: 30px;
+  color: #484747;
+  font-family: sans-serif;
+}
+
+.trend_title {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #8c8c8c;
+  font-size: 20px;
+  max-width: 95%;
+}
+
+.movies-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  text-align: center;
+
+  .card {
+    background-color: $backgroundColor;
+    text-align: center;
+    box-shadow: 3px 5px 4px #989898;
+    color: white;
+    height: 393px;
+  }
+}
+
+.movies-grid img {
+  width: inherit;
+  max-height: 300px;
+  box-shadow: var(--shadow);
+}
+
+.movie_content {
+  padding-top: 5px;
+}
+
+.movieTitle {
+  max-width: fit-content;
+}
+
+#main-content {
+  overflow: hidden;
 }

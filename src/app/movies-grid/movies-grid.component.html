@@ -1,0 +1,22 @@
+<div class="">
+    <div class="trendcard">
+        <section *ngIf="sectionMovies" class="movies-grid">
+            <div *ngFor="let movie of sectionMovies">
+                <div  *ngIf="movie.posterPath; else noPoster" >
+                    <div class="">
+                        <div class="card">
+                            <img [src]="movie.posterPath"/>
+                            <ng-template #noPoster>
+                                <img [src]="src/assets/img/tv_200.jpeg" />
+                            </ng-template>
+                            <span class="movie_content">
+                                <h3 class="movieTitle">{{ movie.title }}</h3>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

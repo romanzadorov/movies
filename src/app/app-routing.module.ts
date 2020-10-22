@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MoviesGridComponent } from './movies-grid/movies-grid.component';
 import {MoviesComponent} from './movies/movies.component';
-
 
 const routes: Routes = [
   {
@@ -13,16 +13,37 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/movies",
+    redirectTo: "/home",
     pathMatch: "full"
   },
   {
-    path: "movies",
+    path: "home",
     component: MoviesComponent,
     data: {
       title: "Movies"
     }
   },
+  {
+    path: "new-releases",
+    component: MoviesGridComponent,
+    data: {
+      title: "New Releases"
+    }
+  },
+  {
+    path: "popular",
+    component: MoviesGridComponent,
+    data: {
+      title: "Popular"
+    }
+  },
+  {
+    path: "coming-soon",
+    component: MoviesGridComponent,
+    data: {
+      title: "Coming Soon"
+    }
+  }
 ];
 
 @NgModule({

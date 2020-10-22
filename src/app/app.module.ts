@@ -10,9 +10,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material/material.module";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MoviesGridComponent } from './movies-grid/movies-grid.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviesComponent],
+  declarations: [
+    AppComponent, 
+    MoviesComponent, 
+    MoviesGridComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

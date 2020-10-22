@@ -83,4 +83,22 @@ export class AppService {
       },
     });
   }
+
+  getSectionMovies(section){
+    let url = "";
+    switch (section) {
+      case "new-releases":
+        url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
+        break;
+      case "popular":
+        url = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
+        break;
+      case "coming-soon":
+        url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.omdbKey}&page=1`;
+        break;
+    }
+    console.log("url", url);
+    return this.http.get(url);
+  }
+  
 }

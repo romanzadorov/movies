@@ -1,3 +1,5 @@
+@import "../../vars.scss";
+
 swiper {
   height: 300px;
   width: 200px;
@@ -10,7 +12,7 @@ swiper {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: $backgroundColor;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,13 +29,10 @@ swiper {
 }
 
 .header {
-  background-color: #3d4551;
+  background-color: $backgroundColor;
   width: 100%;
   color: white;
-  margin-top: 20px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .title {
@@ -41,6 +40,7 @@ swiper {
   padding-left: 20px;
   font-family: sans-serif;
   font-size: 26px;
+  color: white;
 }
 
 .date {
@@ -61,7 +61,7 @@ swiper {
 }
 
 .cards {
-  background-color: white;
+  background-color: $backgroundColor;
   margin-top: 15px;
 
   height: 46%;
@@ -93,7 +93,7 @@ swiper {
   min-height: 95.5%;
   max-height: 95.5%;
   border: none;
-  background-color: white;
+  background-color: $backgroundColor;
   margin-left: 10px;
   padding: 5px;
   margin-top: 15px;
@@ -112,7 +112,7 @@ swiper {
 }
 
 .topcard {
-  background-color: white;
+  background-color: $backgroundColor;
   margin-top: 15px;
   padding: 20px;
   text-align: center;
@@ -134,39 +134,7 @@ th {
 }
 
 tr:nth-child(odd) {
-  background-color: #f0f0f0;
-}
-
-.trendcard {
-  background-color: white;
-  margin-top: 15px;
-  padding: 18px;
-  border: none;
-  -webkit-box-shadow: 2px 3px 4px #989898;
-  box-shadow: 2px 3px 4px #989898;
-}
-
-.trend_unit {
-  text-align: center;
-  font-size: 34px;
-  color: #0a1864;
-  font-family: sans-serif;
-}
-
-.trend_label {
-  margin-top: -7px;
-  text-align: center;
-  padding-bottom: 30px;
-  color: #484747;
-  font-family: sans-serif;
-}
-
-.trend_title {
-  font-family: sans-serif;
-  font-weight: bold;
-  color: #8c8c8c;
-  font-size: 20px;
-  max-width: 95%;
+  background-color: $backgroundColor;
 }
 
 .arrow_icon {
@@ -177,7 +145,7 @@ tr:nth-child(odd) {
 }
 
 .movie_card {
-  background-color: #3d4550;
+  background-color: $backgroundColor;
   text-align: center;
   margin-left: 10px;
   box-shadow: 3px 5px 4px #989898;
@@ -196,20 +164,25 @@ tr:nth-child(odd) {
   }
 }
 
-.movie_content {
-  padding-top: 5px;
-}
+// .movie_content {
+//   padding-top: 5px;
+// }
 
-h3 {
-  font-family: sans-serif;
-  font-size: 20px;
-}
+// h3 {
+//   font-family: sans-serif;
+//   font-size: 20px;
+// }
 
 p {
   font-family: sans-serif;
   font-size: 14px;
 }
 
-.movieTitle {
-  max-width: fit-content;
+img {
+  max-width: 100%;
+}
+
+.latestMoviesSectionWrapper {
+  display: grid;
+  grid-gap: 20px;
 }
