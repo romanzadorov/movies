@@ -100,5 +100,22 @@ export class AppService {
     console.log("url", url);
     return this.http.get(url);
   }
+
+  getMovie(section, query){
+    let url = "";
+    switch (section) {
+      case "new-releases":
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
+        break;
+      case "popular":
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
+        break;
+      case "coming-soon":
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
+        break;
+    }
+    console.log("url", url);
+    return this.http.get(url);
+  }
   
 }

@@ -1,4 +1,14 @@
 <div class="">
+    <div class="search-container">
+        <input
+          matInput
+          class="search-field"
+          #filter
+          (keyup)="keyUp.next($event)"
+          placeholder="Search a city"
+        />
+        <a class="cancel" id="cancel" (click)="close('cancel')">Cancel</a>
+      </div>
     <div class="trendcard">
         <section *ngIf="sectionMovies" class="movies-grid">
             <div *ngFor="let movie of sectionMovies">
