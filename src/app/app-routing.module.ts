@@ -1,47 +1,48 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MoviesGridComponent } from './movies-grid/movies-grid.component';
 import {MoviesComponent} from './movies/movies.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: MoviesComponent,
-    data: {
-      title: "Movies"
-    }
-  },
-  {
-    path: "",
-    redirectTo: "/home",
+    redirectTo: "/movies",
     pathMatch: "full"
   },
   {
-    path: "home",
+    path: "movies",
     component: MoviesComponent,
     data: {
       title: "Movies"
     }
   },
   {
-    path: "new-releases",
+    path: "movies/new-releases",
     component: MoviesGridComponent,
     data: {
       title: "New Releases"
     }
   },
   {
-    path: "popular",
+    path: "movies/popular",
     component: MoviesGridComponent,
     data: {
       title: "Popular"
     }
   },
   {
-    path: "coming-soon",
+    path: "movies/coming-soon",
     component: MoviesGridComponent,
     data: {
       title: "Coming Soon"
+    }
+  },
+  {
+    path: "movies/:movieId",
+    component: MovieDetailComponent,
+    data: {
+      title: "Movies"
     }
   }
 ];

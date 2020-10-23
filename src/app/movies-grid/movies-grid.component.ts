@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subject, Subscription } from "rxjs";
 import {
   map,
@@ -29,16 +29,17 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
   public keyUp = new Subject<KeyboardEvent>();
 
   constructor(private readonly appService: AppService,
-    private readonly activatedRoute: ActivatedRoute) {
+    private readonly activatedRoute: ActivatedRoute,
+    private router: Router) {
       console.log(this.activatedRoute.snapshot['_routerState'].url);
       switch (this.activatedRoute.snapshot['_routerState'].url) {
-        case "/new-releases":
+        case "/movies/new-releases":
           this.section = "new-releases";
           break;
-        case "/popular":
+        case "/movies/popular":
           this.section = "popular";
           break;
-        case "/coming-soon":
+        case "/movies/coming-soon":
           this.section = "coming-soon";
           break;
       }
@@ -64,7 +65,7 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
         debounceTime(500),
         distinctUntilChanged(),
         mergeMap((search) =>
-          this.appService.getMovie(this.section, search).pipe(
+          this.appService.getMovieBySectionAndName(this.section, search).pipe(
             catchError((err) => {
               console.log("Handling error locally and rethrowing it...", err);
               this.isNotFound = true;
@@ -114,5 +115,11 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
       ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
       return result;
     });
+  }
+
+  goToMovieDetails(details) {
+    console.log(details);
+    this.appService.movieDetails = details;
+    this.router.navigate([`movies/${details.id}`])
   }
 }

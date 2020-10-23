@@ -5,7 +5,7 @@
           class="search-field"
           #filter
           (keyup)="keyUp.next($event)"
-          placeholder="Search a city"
+          placeholder="Search a movie"
         />
         <a class="cancel" id="cancel" (click)="close('cancel')">Cancel</a>
       </div>
@@ -14,7 +14,7 @@
             <div *ngFor="let movie of sectionMovies">
                 <div  *ngIf="movie.posterPath; else noPoster" >
                     <div class="">
-                        <div class="card">
+                        <div class="card" (click)="goToMovieDetails(movie)">
                             <img [src]="movie.posterPath"/>
                             <ng-template #noPoster>
                                 <img [src]="src/assets/img/tv_200.jpeg" />

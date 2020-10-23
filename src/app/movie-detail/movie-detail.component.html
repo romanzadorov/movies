@@ -1,0 +1,30 @@
+<div class="wrapper" *ngIf="movieDetails">
+    <section class="image" *ngIf="movieDetails && movieDetails.posterPath; else noPoster">
+        <img [src]="movieDetails.posterPath" />
+        <ng-template #noPoster>
+            <img [src]="src / assets / img / tv_200.jpeg" />
+        </ng-template>
+    </section>
+    <section class="info">
+        <div class="info-row">
+            <div class="movie-title">
+                <span>{{movieDetails.title}}</span>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="year-info">
+                <span>{{movieDetails.release_date}}</span>
+            </div>
+            <div class="favorites">
+                <i class="fas fa-heart fa-2x"></i>
+                <i class="far fa-heart fa-2x"></i>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="summary-info">
+                <p class="summary-header">Summary</p>
+                <p class="summary-details">{{movieDetails.overview}}</p>
+            </div>
+        </div>
+    </section>
+</div>

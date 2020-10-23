@@ -12,6 +12,7 @@ export class AppService {
   castLookup = `https://api.themoviedb.org/3/search/multi`; //;?api_key=${omdbKey}&language=en-US&query=`;
   genreList = `https://api.themoviedb.org/3/genre/movie/list`;
   search_api = `https://api.themoviedb.org/3/search/movie?&api_key=${this.omdbKey}&query=`;
+  movieDetails: any;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -101,7 +102,7 @@ export class AppService {
     return this.http.get(url);
   }
 
-  getMovie(section, query){
+  getMovieBySectionAndName(section, query){
     let url = "";
     switch (section) {
       case "new-releases":
@@ -115,6 +116,12 @@ export class AppService {
         break;
     }
     console.log("url", url);
+    return this.http.get(url);
+  }
+
+  getMovieDetailsById(movieId){
+    let url = "";
+    url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.omdbKey}`;
     return this.http.get(url);
   }
   

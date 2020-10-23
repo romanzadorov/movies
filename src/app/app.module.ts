@@ -11,12 +11,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material/material.module";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MoviesGridComponent } from './movies-grid/movies-grid.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     MoviesComponent, 
-    MoviesGridComponent
+    MoviesGridComponent, MovieDetailComponent
   ],
   imports: [
     BrowserModule,

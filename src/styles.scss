@@ -74,7 +74,7 @@ h3 {
 .movies-grid {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 0fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   text-align: center;
 
   .card {
@@ -84,6 +84,7 @@ h3 {
     color: white;
     height: 393px;
     max-width: fit-content;
+    cursor: pointer;
   }
 }
 
