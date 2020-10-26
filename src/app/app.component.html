@@ -2,9 +2,10 @@
     <div class="">
       <div>
         <mat-toolbar class="header-toolbar">
-          <div class="logo" id="basic-logo">
+          <!-- <div class="logo" id="basic-logo">
             <img class="img-logo" src="../assets/img/tv_200.jpeg" alt="logo">
-          </div>
+          </div> -->
+          <div class="header-text">TV Box</div>
           <span class="fill-space"></span>
           <div fxShow="true" fxHide.gt-sm="true">
             <button mat-icon-button id="menu" (click)="sidenav.toggle()">
@@ -13,22 +14,22 @@
           </div>
           <span class="example-spacer"></span>
           <nav fxShow="true" fxHide.lt-md="true" role="navigation" class="" id="headerLinks">
-            <ul class="">
+            <ul class="headerLinks">
   
               <ng-container>
-                <li class="">
+                <li class="header-link">
                   <a mat-button id="user" class="" routerLink="/movies">
                     <span>Home</span>
                   </a>
                 </li>
 
-                <li class="">
+                <li class="header-link">
                   <a mat-button id="newReleases" class="" routerLink="movies/new-releases">
                     <span>New Releases</span>
                   </a>
                 </li>
 
-                <li class="">
+                <li class="header-link">
                   <a mat-button id="popular" class="nav__link" routerLink="movies/popular">
                     <span>Popular</span>
                   </a>
@@ -50,19 +51,19 @@
               <ul class="">
   
                 <ng-container>
-                    <li class="">
-                      <a mat-button id="user" class="" routerLink="/movies">
+                    <li class="header-link">
+                      <a mat-button id="home" class="" routerLink="/movies">
                         <span>Home</span>
                       </a>
                     </li>
 
-                    <li class="">
+                    <li class="header-link">
                       <a mat-button id="newReleases" class="" routerLink="movies/new-releases">
                         <span>New Releases</span>
                       </a>
                     </li>
     
-                    <li class="">
+                    <li class="header-link">
                       <a mat-button id="popular" class="nav__link" routerLink="movies/popular">
                         <span>Popular</span>
                       </a>
