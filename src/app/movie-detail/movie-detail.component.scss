@@ -1,3 +1,5 @@
+@import "./../../vars.scss";
+
 .wrapper {
   display: grid;
   grid-gap: 20px;
@@ -9,18 +11,75 @@
 .image {
   grid-area: image;
   min-height: 300px;
-  padding: 3rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   box-shadow: var(--shadow);
+}
+
+.image img {
+  // width: inherit !important;
+  min-width: -webkit-fill-available;
 }
 
 .info {
   display: grid;
   grid-gap: 20px;
   color: white;
+  padding: 1rem;
+}
+
+.genres {
+  height: min-content;
+  margin: 1.5rem 0 1.5rem 0;
+  h2 {
+    margin: inherit;
+  }
+}
+
+.genre {
+  padding: 1rem;
+  background-color: $greyColor;
+  border-radius: 22px;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  font-size: large;
+  font-weight: 700;
+}
+
+.add-and-play-block {
+  display: flex;
+  align-items: baseline;
+
+  h3 {
+    margin-left: 10px;
+  }
+
+  .favorites {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    .fa-heart {
+      cursor: pointer;
+    }
+  }
+
+  .favorites-color {
+    color: red;
+  }
+
+  .play {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-left: 1rem;
+    .fab {
+      color: red;
+      background-image: radial-gradient(at center, white 40%, transparent 40%);
+      cursor: pointer;
+    }
+  }
 }
 
 @media (max-width: 700px) {
@@ -44,5 +103,9 @@
     grid-template-areas:
       "image"
       "info";
+  }
+
+  img {
+    // width: inherit !important;
   }
 }

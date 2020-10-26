@@ -12,6 +12,7 @@ export class AppService {
   castLookup = `https://api.themoviedb.org/3/search/multi`; //;?api_key=${omdbKey}&language=en-US&query=`;
   genreList = `https://api.themoviedb.org/3/genre/movie/list`;
   search_api = `https://api.themoviedb.org/3/search/movie?&api_key=${this.omdbKey}&query=`;
+  youtubeBaseURL = "https://www.youtube.com/watch?v=";
   movieDetails: any;
 
   constructor(private readonly http: HttpClient) {}
@@ -122,6 +123,15 @@ export class AppService {
   getMovieDetailsById(movieId){
     let url = "";
     url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.omdbKey}`;
+    return this.http.get(url);
+  }
+
+  getVideo(movieId){
+    //https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=<<api_key>>&language=en-US
+    let url = "";
+    url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.omdbKey}&language=en-US`;
+    console.log(url);
+    
     return this.http.get(url);
   }
   

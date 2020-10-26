@@ -105,3 +105,7 @@ h3 {
 #main-content {
   overflow: hidden;
 }
+
+::ng-deep .cdk-overlay-pane {
+  width: 100vw;
+}

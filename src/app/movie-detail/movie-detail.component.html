@@ -8,22 +8,38 @@
     <section class="info">
         <div class="info-row">
             <div class="movie-title">
-                <span>{{movieDetails.title}}</span>
+                <h1>{{movieDetails.title}}</h1>
             </div>
         </div>
         <div class="info-row">
             <div class="year-info">
-                <span>{{movieDetails.release_date}}</span>
+                <h2>{{movieDetails.releaseYear}} | {{movieDetails.runTime}}</h2>
             </div>
-            <div class="favorites">
-                <i class="fas fa-heart fa-2x"></i>
-                <i class="far fa-heart fa-2x"></i>
+            <div class="genres">
+                <h2>Genres</h2>
+                <span class="genre" *ngFor="let genre of movieDetails.genres">{{genre.name.toUpperCase()}}</span>
+            </div>
+            <div class="add-and-play-block">
+                <div class="favorites">
+                    <span>
+                        <i class="fas fa-heart fa-2x favorites-color" *ngIf="getIsFavorite(movieDetails)" (click)="removeFromFavorites(movieDetails)"></i>
+                        <i class="far fa-heart fa-2x" *ngIf="!getIsFavorite(movieDetails)" (click)="addToFavorites(movieDetails)"></i>
+                    </span>
+                    <h3>Add To Favorites</h3>
+                </div>
+             
+                <div class="play">
+                    <span>
+                        <i class="fab fa-youtube fa-2x" (click)="openVideoModal()"></i>
+                    </span>
+                    <h3>Play Trailer</h3>
+                </div>
             </div>
         </div>
         <div class="info-row">
             <div class="summary-info">
-                <p class="summary-header">Summary</p>
-                <p class="summary-details">{{movieDetails.overview}}</p>
+                <h2 class="summary-header">Summary</h2>
+                <h3 class="summary-details">{{movieDetails.overview}}</h3>
             </div>
         </div>
     </section>

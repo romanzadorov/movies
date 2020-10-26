@@ -1,0 +1,37 @@
+@import "./../../vars.scss";
+
+.videoFrame {
+  width: -webkit-fill-available;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.cancel i {
+  color: white;
+}
+
+::ng-deep .custom-modalbox > mat-dialog-container {
+  background-color: $backgroundColor !important;
+  overflow-y: hidden;
+}
+
+mat-dialog-content {
+  height: 100%;
+  overflow-y: hidden !important;
+  section {
+    height: 100%;
+    .card-title {
+      height: 100%;
+      .videoWrapper {
+        height: 100%;
+        .videoFrame {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

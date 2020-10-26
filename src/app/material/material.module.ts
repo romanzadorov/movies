@@ -35,7 +35,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    FlexLayoutModule,
+    FlexLayoutModule 
   ],
   exports: [
     MatCheckboxModule,
@@ -53,7 +53,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    FlexLayoutModule,
+    FlexLayoutModule 
   ],
 })
 export class MaterialModule {}

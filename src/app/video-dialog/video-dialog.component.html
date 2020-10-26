@@ -1,0 +1,14 @@
+<div class="dialog-actions">
+    <a class="cancel" id="cancel" (click)="dialogRef.close(true)">
+        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+    </a>
+</div>
+<mat-dialog-content>
+    <section *ngIf="videoLink">
+        <h5 class="card-title">
+            <div class="videoWrapper">
+                <iframe [src]='videoLink' class="videoFrame" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </h5>
+    </section>
+</mat-dialog-content>
