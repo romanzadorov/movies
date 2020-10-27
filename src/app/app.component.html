@@ -49,6 +49,7 @@
         </mat-toolbar>
         <mat-sidenav-container fxFlexFill class="container">
           <mat-sidenav
+          class="sidenav"
                 position="end"
                 color="primary"
                 #sidenav
@@ -57,7 +58,7 @@
                 opened="false"
                 fxHide.gt-sm="true">
             <nav fxLayout="column">
-              <ul class="">
+              <ul class="sidenav-list">
   
                 <ng-container>
                     <li class="header-link">
@@ -90,9 +91,11 @@
           <mat-sidenav-content fxFlexFill>
             <main id="main-content">
               <router-outlet></router-outlet>
+              <app-footer></app-footer>
             </main>
           </mat-sidenav-content>
         </mat-sidenav-container>
       </div>
     </div>
   </header>
+ 

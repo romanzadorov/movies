@@ -1,0 +1,29 @@
+<div class="trendcard">
+    <swiper [config]="config" class="swiper-container">
+      <div class="swiper-wrapper" id="movies">
+        <div
+          class="swiper-slide"
+          *ngFor="let movie of movies"
+          (click)="overview(movie)"
+        >
+          <div class="swiper_card" (click)="goToMovieDetails(movie)">
+            <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
+              <img [src]="movie.posterPath" />
+            </div>
+            <ng-template #noPoster>
+              <img [src]="src / assets / img / tv_200.jpeg" />
+            </ng-template>
+            <div class="movie_content">
+              <h3 class="movieTitle">{{ movie.title }}</h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper>
+  </div>

@@ -111,3 +111,65 @@ h3 {
 ::ng-deep .cdk-overlay-pane {
   width: 100vw;
 }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  color: #bdbdbd;
+  height: 60px;
+  font-weight: 800;
+}
+
+// ================================================================
+// Swiper styles:
+
+swiper {
+  height: 300px;
+  width: 200px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: $backgroundColor;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper_card {
+  background-color: $backgroundColor;
+  text-align: center;
+  margin-left: 10px;
+  box-shadow: 3px 5px 4px #989898;
+  color: white;
+  height: 393px;
+  cursor: pointer;
+}
+
+.swiper_pic {
+  width: 200px;
+  height: 300px;
+  img {
+    vertical-align: middle;
+    border-style: none;
+    height: -webkit-fill-available;
+    width: max-content;
+  }
+}
+
+// ================================================================

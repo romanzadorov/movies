@@ -13,12 +13,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MoviesGridComponent } from './movies-grid/movies-grid.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { VideoDialogComponent } from './video-dialog/video-dialog.component';
+import { FooterComponent } from './footer/footer.component';
+import { SwiperWrapperComponent } from './swiper-wrapper/swiper-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     MoviesComponent, 
-    MoviesGridComponent, MovieDetailComponent, VideoDialogComponent
+    MoviesGridComponent, MovieDetailComponent, VideoDialogComponent, FooterComponent, SwiperWrapperComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .header-text {
   color: white;
   font-size: 3rem;
@@ -19,4 +21,12 @@
   color: white;
   font-size: larger;
   font-weight: 700;
+}
+
+.sidenav {
+  background-color: $backgroundColor;
+}
+
+.sidenav-list {
+  list-style: none;
 }

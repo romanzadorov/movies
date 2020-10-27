@@ -16,6 +16,7 @@ export class MovieDetailComponent implements OnInit {
   movieDetails: any;
   videoLink: any;
   innerWidth: any;
+  recommendedMovies: any = [];
 
   constructor(private activatedRoute: ActivatedRoute,
     private readonly appService: AppService,
@@ -25,7 +26,7 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.movieId = this.activatedRoute.snapshot.params['movieId'];
     this.getMovieDetailsById(this.movieId);
-
+this.getSectionMovies();
     this.innerWidth = window.innerWidth;
   }
 
@@ -163,6 +164,26 @@ export class MovieDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       
+    });
+  }
+
+  getSectionMovies(){
+    this.appService.getSectionMovies("popular").subscribe((res) => {
+      console.log(res);
+      this.recommendedMovies = this.mapMovies(res["results"]);
+    });
+  }
+
+  private mapMovies(movies) {
+    return movies.map((movie) => {
+      let result = Object.assign({}, movie);
+      result["posterPath"] = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}?api_key=${this.appService.omdbKey}`
+        : `../assets/img/tv_200.jpeg`;
+      result[
+        "overviewPath"
+      ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
+      return result;
     });
   }
 }
