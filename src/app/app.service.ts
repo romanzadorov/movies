@@ -99,23 +99,13 @@ export class AppService {
         url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.omdbKey}&page=1`;
         break;
     }
-    console.log("url", url);
+    // console.log("url", url);
     return this.http.get(url);
   }
 
   getMovieBySectionAndName(section, query){
     let url = "";
-    switch (section) {
-      case "new-releases":
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
-        break;
-      case "popular":
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
-        break;
-      case "coming-soon":
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
-        break;
-    }
+    url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
     console.log("url", url);
     return this.http.get(url);
   }

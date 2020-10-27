@@ -39,6 +39,13 @@ const routes: Routes = [
     }
   },
   {
+    path: "movies/myfavorites",
+    component: MoviesGridComponent,
+    data: {
+      title: "My Favorites"
+    }
+  },
+  {
     path: "movies/:movieId",
     component: MovieDetailComponent,
     data: {

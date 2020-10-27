@@ -22,9 +22,8 @@
             <div
               class="swiper-slide"
               *ngFor="let movie of latestMovies"
-              (click)="overview(movie)"
             >
-              <div class="movie_card">
+              <div class="movie_card" (click)="goToMovieDetails(movie)">
                 <div *ngIf="movie.posterPath; else noPoster" class="movie_pic">
                   <img [src]="movie.posterPath" />
                 </div>
@@ -49,7 +48,11 @@
   <!-- Most Popular Movies -->
   <div class="grid-row header">
     <div class="tablet:grid-col-9">
-      <div id="popularMovieTitle" class="title">Most Popular</div>
+      <a 
+        id="popularMovieTitle"
+        class="title"
+        [routerLink]="['popular']">Most Popular >>
+      </a>
     </div>
     <div class="grid-col-6 tablet:grid-col-3">
       <div class="date"></div>
@@ -65,7 +68,7 @@
               *ngFor="let movie of popularMovies"
               (click)="overview(movie)"
             >
-              <div class="movie_card">
+              <div class="movie_card" (click)="goToMovieDetails(movie)">
                 <div *ngIf="movie.posterPath; else noPoster" class="movie_pic">
                   <img [src]="movie.posterPath" />
                 </div>
@@ -92,7 +95,11 @@
   <!-- coming soon Movies -->
   <div class="grid-row header">
     <div class="tablet:grid-col-9">
-      <div id="upcomingMovieTitle" class="title">Coming Soon</div>
+      <a 
+        id="upcomingMovieTitle"
+        class="title"
+        [routerLink]="['popular']">Coming Soon >>
+      </a>
     </div>
     <div class="grid-col-6 tablet:grid-col-3">
       <div class="date"></div>
@@ -108,7 +115,7 @@
               *ngFor="let movie of comingSoonMovies"
               (click)="overview(movie)"
             >
-              <div class="movie_card">
+              <div class="movie_card" (click)="goToMovieDetails(movie)">
                 <div *ngIf="movie.posterPath; else noPoster" class="movie_pic">
                   <img [src]="movie.posterPath" />
                 </div>
@@ -132,26 +139,51 @@
     </div>
   </div>
 
-    <!-- movies-grid -->
-    <div class="trendcard">
-      <section class="movies-grid">
-        <div *ngFor="let movie of latestMovies">
-          <div  *ngIf="movie.posterPath; else noPoster" >
-            <div class="">
-              <div class="card">
-                <img [src]="movie.posterPath" />
-                <ng-template #noPoster>
-                  <img [src]="src / assets / img / tv_200.jpeg" />
-                </ng-template>
-                <span class="movie_content">
-                  <h3 class="movieTitle">{{ movie.title }}</h3>
-                </span>
+  <!-- my Favorite Movies -->
+  <div *ngIf="myFavoriteMovies">
+    <div class="grid-row header">
+      <div class="tablet:grid-col-9">
+        <a 
+          id="favoriteMovieTitle"
+          class="title"
+          [routerLink]="['myfavorites']">My Favorites >>
+        </a>
+      </div>
+      <div class="grid-col-6 tablet:grid-col-3">
+        <div class="date"></div>
+      </div>
+    </div>
+    <div class="grid-row grid-gap">
+      <div class="tablet:grid-col-fill">
+        <div class="trendcard">
+          <swiper [config]="config" class="swiper-container">
+            <div class="swiper-wrapper" id="myFavoriteMovies">
+              <div
+                class="swiper-slide"
+                *ngFor="let movie of myFavoriteMovies"
+              >
+                <div class="movie_card" (click)="goToMovieDetails(movie)">
+                  <div *ngIf="movie.posterPath; else noPoster" class="movie_pic">
+                    <img [src]="movie.posterPath" />
+                  </div>
+                  <ng-template #noPoster>
+                    <img [src]="src / assets / img / tv_200.jpeg" />
+                  </ng-template>
+                  <div class="movie_content">
+                    <h3 class="movieTitle">{{ movie.title }}</h3>
+                    <p></p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </swiper>
         </div>
-      </section>
+      </div>
     </div>
-
-
+  </div>
 </div>

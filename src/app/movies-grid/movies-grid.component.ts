@@ -31,7 +31,7 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
   constructor(private readonly appService: AppService,
     private readonly activatedRoute: ActivatedRoute,
     private router: Router) {
-      console.log(this.activatedRoute.snapshot['_routerState'].url);
+      // console.log(this.activatedRoute.snapshot['_routerState'].url);
       switch (this.activatedRoute.snapshot['_routerState'].url) {
         case "/movies/new-releases":
           this.section = "new-releases";
@@ -42,16 +42,24 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
         case "/movies/coming-soon":
           this.section = "coming-soon";
           break;
+        case "/movies/myfavorites":
+          this.section = "myfavorites";
+          break;
       }
   }
 
   ngOnInit() {
 
-    this.appService.getSectionMovies(this.section).subscribe((res) => {
-      console.log(res);
-      this.sectionMovies = this.mapMovies(res["results"]);
-      // this.sectionMovies = res['results'];
-    });
+    if(this.section && this.section !== "myfavorites") {
+      this.appService.getSectionMovies(this.section).subscribe((res) => {
+        console.log(res);
+        this.sectionMovies = this.mapMovies(res["results"]);
+        // this.sectionMovies = res['results'];
+      });
+    } else {
+      this.sectionMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
+    }
+
   }
 
   ngOnDestroy(): void {
@@ -78,7 +86,7 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
         (res) => {
           console.log(res);
 
-          if (res) {
+          if (res && res["results"]) {
             this.sectionMovies = [];
             // this.countries.push(data[0]);
             // localStorage.setItem("cities", JSON.stringify(this.countries));

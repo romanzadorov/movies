@@ -92,14 +92,17 @@ export class MovieDetailComponent implements OnInit {
     this.movieDetails["isFavorite"] = true;
     let favoriteMovies = new Array();
     favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
-    
     if (favoriteMovies && favoriteMovies.length > 0) {
-      favoriteMovies.forEach(movie => {
-        if (movie.id !== movieDetails.id) {
-          favoriteMovies.push(movieDetails)
+        // if found, returns the country object, else returns undefined
+        let existingMovie = favoriteMovies.find(
+          (movie) => movie["id"] === movieDetails.id
+        );
+
+        // if it's a new city, add it.
+        if (!existingMovie) {
+          favoriteMovies.push(movieDetails);
           localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
         }
-      })
     } else {
       favoriteMovies = [];
       favoriteMovies.push(movieDetails);

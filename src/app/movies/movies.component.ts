@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import { AppService } from "../app.service";
 
 @Component({
@@ -11,6 +12,8 @@ export class MoviesComponent implements OnInit {
   popularMovies: any = [];
   comingSoonMovies: any = [];
   criticMovies: any = [];
+  myFavoriteMovies: any = [];
+
 
   config: any = {
     pagination: { el: ".swiper-pagination", clickable: true },
@@ -52,7 +55,8 @@ export class MoviesComponent implements OnInit {
     },
   };
 
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService,
+    private router: Router) {}
 
   ngOnInit() {
     this.appService.getMovies().subscribe((allMovies) => {
@@ -61,6 +65,7 @@ export class MoviesComponent implements OnInit {
       this.popularMovies = this.mapMovies(allMovies[1]["results"]);
       this.comingSoonMovies = this.mapMovies(allMovies[2]["results"]);
       this.criticMovies = this.mapMovies(allMovies[3]["results"]);
+      this.myFavoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
     });
   }
 
@@ -77,7 +82,8 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  overview(movie) {
-    console.log(movie);
+  goToMovieDetails(details) {
+    this.appService.movieDetails = details;
+    this.router.navigate([`movies/${details.id}`])
   }
 }
