@@ -1,16 +1,6 @@
 <div class="">
-    <div class="search-container">
-        <input
-          matInput
-          class="search-field"
-          #filter
-          (keyup)="keyUp.next($event)"
-          placeholder="Search a movie"
-        />
-        <a class="cancel" id="cancel" (click)="close('cancel')">Cancel</a>
-      </div>
     <div class="trendcard">
-        <section *ngIf="sectionMovies" class="movies-grid">
+        <section *ngIf="sectionMovies && sectionMovies.length > 0; else noSearchResults" class="movies-grid">
             <div *ngFor="let movie of sectionMovies">
                 <div  *ngIf="movie.posterPath; else noPoster" >
                     <div class="">
@@ -27,6 +17,10 @@
                 </div>
             </div>
         </section>
+        <ng-template #noSearchResults>
+            <h3 class="no_results_message">Bummer - we couldn't find what you were looking for, but we thought you might like these.</h3>
+            <app-swiper-wrapper [movies]="sectionMoviesAlt"></app-swiper-wrapper>
+        </ng-template>
     </div>
 </div>
 

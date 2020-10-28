@@ -15,12 +15,13 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { VideoDialogComponent } from './video-dialog/video-dialog.component';
 import { FooterComponent } from './footer/footer.component';
 import { SwiperWrapperComponent } from './swiper-wrapper/swiper-wrapper.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     MoviesComponent, 
-    MoviesGridComponent, MovieDetailComponent, VideoDialogComponent, FooterComponent, SwiperWrapperComponent
+    MoviesGridComponent, MovieDetailComponent, VideoDialogComponent, FooterComponent, SwiperWrapperComponent, SearchComponent
   ],
   imports: [
     BrowserModule,

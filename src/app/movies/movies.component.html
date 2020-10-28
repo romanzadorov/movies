@@ -10,32 +10,7 @@
       </a>
     </div>
   </div>
-  <div class="trendcard">
-    <swiper [config]="config" class="swiper-container">
-      <div class="swiper-wrapper" id="latestMovies">
-        <div
-          class="swiper-slide"
-          *ngFor="let movie of latestMovies"
-        >
-          <div class="swiper_card" (click)="goToMovieDetails(movie)">
-            <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
-              <img [src]="movie.posterPath" />
-            </div>
-            <ng-template #noPoster>
-              <img [src]="src / assets / img / tv_200.jpeg" />
-            </ng-template>
-            <div class="movie_content">
-              <h3 class="movieTitle">{{ movie.title }}</h3>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </swiper>
-  </div>
+  <app-swiper-wrapper [movies]="latestMovies"></app-swiper-wrapper>
 
   <!-- Most Popular Movies -->
   <div class="movie-header">
@@ -47,35 +22,7 @@
       </a>
     </div>
   </div>
-  <div class="trendcard">
-    <swiper [config]="config" class="swiper-container">
-      <div class="swiper-wrapper" id="popularMovies">
-        <div
-          class="swiper-slide"
-          *ngFor="let movie of popularMovies"
-          (click)="overview(movie)"
-        >
-          <div class="swiper_card" (click)="goToMovieDetails(movie)">
-            <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
-              <img [src]="movie.posterPath" />
-            </div>
-            <ng-template #noPoster>
-              <img [src]="src / assets / img / tv_200.jpeg" />
-            </ng-template>
-            <div class="movie_content">
-              <h3 class="movieTitle">{{ movie.title }}</h3>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- Add Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </swiper>
-  </div>
+  <app-swiper-wrapper [movies]="popularMovies"></app-swiper-wrapper>
 
   <!-- coming soon Movies -->
   <div class="movie-header">
@@ -87,35 +34,7 @@
       </a>
     </div>
   </div>
-  <div class="trendcard">
-    <swiper [config]="config" class="swiper-container">
-      <div class="swiper-wrapper" id="upcomingMovies">
-        <div
-          class="swiper-slide"
-          *ngFor="let movie of comingSoonMovies"
-          (click)="overview(movie)"
-        >
-          <div class="swiper_card" (click)="goToMovieDetails(movie)">
-            <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
-              <img [src]="movie.posterPath" />
-            </div>
-            <ng-template #noPoster>
-              <img [src]="src / assets / img / tv_200.jpeg" />
-            </ng-template>
-            <div class="movie_content">
-              <h3 class="movieTitle">{{ movie.title }}</h3>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- Add Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </swiper>
-  </div>
+  <app-swiper-wrapper [movies]="comingSoonMovies"></app-swiper-wrapper>
 
   <!-- my Favorite Movies -->
   <div *ngIf="myFavoriteMovies">
@@ -128,33 +47,6 @@
         </a>
       </div>
     </div>
-    <div class="trendcard">
-      <swiper [config]="config" class="swiper-container">
-        <div class="swiper-wrapper" id="myFavoriteMovies">
-          <div
-            class="swiper-slide"
-            *ngFor="let movie of myFavoriteMovies"
-          >
-            <div class="swiper_card" (click)="goToMovieDetails(movie)">
-              <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
-                <img [src]="movie.posterPath" />
-              </div>
-              <ng-template #noPoster>
-                <img [src]="src / assets / img / tv_200.jpeg" />
-              </ng-template>
-              <div class="movie_content">
-                <h3 class="movieTitle">{{ movie.title }}</h3>
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </swiper>
-    </div>
+    <app-swiper-wrapper [movies]="myFavoriteMovies"></app-swiper-wrapper>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<div class="search-container">
+    <input
+      matInput
+      class="search-field"
+      #filter
+      (keyup)="keyUp.next($event)"
+      placeholder="Search a movie"
+    />
+</div>

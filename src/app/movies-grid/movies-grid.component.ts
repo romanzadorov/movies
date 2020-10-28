@@ -23,8 +23,10 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
   comingSoonMovies: any;
   criticMovies: any;
   sectionMovies: Array<Object>;
+  sectionMoviesAlt: Array<Object>;
   section: string;
   isNotFound = false;
+  getMoviesObservableSubscription: Subscription;
 
   public keyUp = new Subject<KeyboardEvent>();
 
@@ -49,66 +51,40 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+this.getSectionMovies();
 
-    if(this.section && this.section !== "myfavorites") {
-      this.appService.getSectionMovies(this.section).subscribe((res) => {
-        console.log(res);
-        this.sectionMovies = this.mapMovies(res["results"]);
-        // this.sectionMovies = res['results'];
-      });
-    } else {
-      this.sectionMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
-    }
+    this.getMoviesObservableSubscription = this.appService.searchMoviesEmit.asObservable().subscribe(refresh => {
+      this.sectionMovies = refresh;
+      console.log(this.sectionMovies);
+this.getSectionMovies("alt");
+      
+    });
 
   }
 
   ngOnDestroy(): void {
+    if (this.keyUpSubscription) {
     this.keyUpSubscription.unsubscribe();
+    }
+    if(this.getMoviesObservableSubscription){
+      this.getMoviesObservableSubscription.unsubscribe();
+    }
   }
 
-  ngAfterViewInit() {
-    this.keyUpSubscription = this.keyUp
-      .pipe(
-        map((event) => event.target["value"]),
-        debounceTime(500),
-        distinctUntilChanged(),
-        mergeMap((search) =>
-          this.appService.getMovieBySectionAndName(this.section, search).pipe(
-            catchError((err) => {
-              console.log("Handling error locally and rethrowing it...", err);
-              this.isNotFound = true;
-              return of({ results: null });
-            })
-          )
-        )
-      )
-      .subscribe(
-        (res) => {
-          console.log(res);
-
-          if (res && res["results"]) {
-            this.sectionMovies = [];
-            // this.countries.push(data[0]);
-            // localStorage.setItem("cities", JSON.stringify(this.countries));
-            this.sectionMovies = this.mapMovies(res["results"]);
-          }
-          if (res["results"] === null) {
-            console.log("no search results");
-          }
-          if (res === "noValueEntered") {
-            console.log("No Value Entered");
-            // this.countries = this.allCountries;
-            this.isNotFound = false;
-          }
-        },
-        (error) => {
-          if (error && error["status"] == 404) {
-            console.log("error", error);
-            this.isNotFound = true;
-          }
-        },
-        () => console.log("HTTP request completed.")
-      );
+  getSectionMovies(type?){
+    if(this.section && this.section !== "myfavorites") {
+      this.appService.getSectionMovies(this.section).subscribe((res) => {
+        // making alternative call to display a swiper in case if no results returned from 
+        // the searchMoviesEmit observable:
+        if (type && type === "alt") {
+          this.sectionMoviesAlt = this.mapMovies(res["results"]);
+        } else {
+          this.sectionMovies = this.mapMovies(res["results"]);
+        }
+      });
+    } else {
+      this.sectionMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
+    }
   }
 
 

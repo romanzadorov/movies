@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
 import { HttpClient } from "@angular/common/http";
-import { forkJoin } from "rxjs";
+import { forkJoin, Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -14,6 +14,7 @@ export class AppService {
   search_api = `https://api.themoviedb.org/3/search/movie?&api_key=${this.omdbKey}&query=`;
   youtubeBaseURL = "https://www.youtube.com/watch?v=";
   movieDetails: any;
+  searchMoviesEmit: Subject<any> = new Subject();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -53,7 +54,7 @@ export class AppService {
         formattedGenreIds,
         formattedLanguages,
       ].join("&");
-      console.log("formatted", url);
+      // console.log("formatted", url);
       return this.http.get(url);
     });
     return forkJoin(urlObservables);
