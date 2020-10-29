@@ -54,7 +54,6 @@ export class AppService {
         formattedGenreIds,
         formattedLanguages,
       ].join("&");
-      // console.log("formatted", url);
       return this.http.get(url);
     });
     return forkJoin(urlObservables);
@@ -99,15 +98,16 @@ export class AppService {
       case "coming-soon":
         url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.omdbKey}&page=1`;
         break;
+      case "search":
+        url = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
+        break;
     }
-    // console.log("url", url);
     return this.http.get(url);
   }
 
   getMovieBySectionAndName(section, query){
     let url = "";
     url = `https://api.themoviedb.org/3/search/movie?api_key=${this.omdbKey}&query=${query}`;
-    console.log("url", url);
     return this.http.get(url);
   }
 
@@ -118,11 +118,8 @@ export class AppService {
   }
 
   getVideo(movieId){
-    //https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=<<api_key>>&language=en-US
     let url = "";
     url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.omdbKey}&language=en-US`;
-    console.log(url);
-    
     return this.http.get(url);
   }
   

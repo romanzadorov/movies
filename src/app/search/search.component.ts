@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { of, Subject, Subscription } from "rxjs";
 import {
   map,
@@ -26,7 +26,16 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   constructor(private readonly appService: AppService,
     private readonly activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+      router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          const titleArray = this.getData(router.routerState, router.routerState.root);
+          if (titleArray[0].title !== "Search") {
+            this.filter.nativeElement.value = ""; 
+          }
+        }
+      })
+    }
 
   ngOnInit() {
   }
@@ -53,8 +62,6 @@ export class SearchComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (res) => {
-          console.log(res);
-
           this.router.navigate([`movies/search`])
           if (res && res["results"]) {
             this.sectionMovies = [];
@@ -92,6 +99,18 @@ export class SearchComponent implements OnInit, OnDestroy {
       ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
       return result;
     });
+  }
+
+  getData(state, parent) {
+    const data = [];
+    if (parent && parent.snapshot.data && parent.snapshot.data.title) {
+      data.push(parent.snapshot.data);
+    }
+
+    if (state && parent) {
+      data.push(... this.getData(state, state.firstChild(parent)));
+    }
+    return data;
   }
 
 }

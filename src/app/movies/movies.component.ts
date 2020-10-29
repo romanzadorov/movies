@@ -60,7 +60,6 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.appService.getMovies().subscribe((allMovies) => {
-      console.log(allMovies);
       this.latestMovies = this.mapMovies(allMovies[0]["results"]);
       this.popularMovies = this.mapMovies(allMovies[1]["results"]);
       this.comingSoonMovies = this.mapMovies(allMovies[2]["results"]);

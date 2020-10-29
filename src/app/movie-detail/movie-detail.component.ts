@@ -32,7 +32,6 @@ this.getSectionMovies();
 
   getMovieDetailsById(movieId){
     this.appService.getMovieDetailsById(movieId).subscribe(res => {
-      console.log(res);
       this.movieDetails = this.mapMovie(res);
       this.getVideo(movieId);
     });
@@ -128,7 +127,6 @@ this.getSectionMovies();
   }
 
   getIsFavorite(movieDetails){
-    console.log(movieDetails);
     return  this.movieDetails["isFavorite"];
   }
 
@@ -160,16 +158,10 @@ this.getSectionMovies();
     const dialogRef = this.dialog.open(VideoDialogComponent, dialogConfig);
 
     dialogRef.componentInstance.videoLink = this.videoLink;
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      
-    });
   }
 
   getSectionMovies(){
     this.appService.getSectionMovies("popular").subscribe((res) => {
-      console.log(res);
       this.recommendedMovies = this.mapMovies(res["results"]);
     });
   }

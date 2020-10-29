@@ -33,7 +33,6 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
   constructor(private readonly appService: AppService,
     private readonly activatedRoute: ActivatedRoute,
     private router: Router) {
-      // console.log(this.activatedRoute.snapshot['_routerState'].url);
       switch (this.activatedRoute.snapshot['_routerState'].url) {
         case "/movies/new-releases":
           this.section = "new-releases";
@@ -47,17 +46,21 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
         case "/movies/myfavorites":
           this.section = "myfavorites";
           break;
+        case "/movies/search":
+          this.section = "search";
+          break;
       }
   }
 
   ngOnInit() {
-this.getSectionMovies();
+    this.getSectionMovies();
 
     this.getMoviesObservableSubscription = this.appService.searchMoviesEmit.asObservable().subscribe(refresh => {
+      this.sectionMovies = [];
       this.sectionMovies = refresh;
-      console.log(this.sectionMovies);
-this.getSectionMovies("alt");
-      
+      if (this.sectionMovies && this.sectionMovies.length === 0) {
+        this.getSectionMovies("alt");
+      }
     });
 
   }
@@ -71,7 +74,7 @@ this.getSectionMovies("alt");
     }
   }
 
-  getSectionMovies(type?){
+  getSectionMovies(type?: string){
     if(this.section && this.section !== "myfavorites") {
       this.appService.getSectionMovies(this.section).subscribe((res) => {
         // making alternative call to display a swiper in case if no results returned from 
@@ -102,7 +105,6 @@ this.getSectionMovies("alt");
   }
 
   goToMovieDetails(details) {
-    console.log(details);
     this.appService.movieDetails = details;
     this.router.navigate([`movies/${details.id}`])
   }
