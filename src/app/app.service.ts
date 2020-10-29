@@ -90,7 +90,7 @@ export class AppService {
     let url = "";
     switch (section) {
       case "new-releases":
-        url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
+        url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.omdbKey}&primary_release_date.gte=2020-05-01`;
         break;
       case "popular":
         url = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
@@ -98,8 +98,8 @@ export class AppService {
       case "coming-soon":
         url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.omdbKey}&page=1`;
         break;
-      case "search":
-        url = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=${this.omdbKey}&primary_release_date.gte=2019-07-01`;
+      case "alt":
+        url = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=${this.omdbKey}&primary_release_date.gte=2020-01-01`;
         break;
     }
     return this.http.get(url);

@@ -46,13 +46,6 @@ const routes: Routes = [
     }
   },
   {
-    path: "movies/search",
-    component: MoviesGridComponent,
-    data: {
-      title: "Search"
-    }
-  },
-  {
     path: "movies/:movieId",
     component: MovieDetailComponent,
     data: {

@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="searchedMovies.length === 0">
 
   <!-- New Releases -->
   <div class="movie-header">
@@ -30,7 +30,7 @@
       <a 
         id="upcomingMovieTitle"
         class="title"
-        [routerLink]="['popular']">Coming Soon <i class="fas fa-angle-double-right"></i>
+        [routerLink]="['coming-soon']">Coming Soon <i class="fas fa-angle-double-right"></i>
       </a>
     </div>
   </div>
@@ -49,4 +49,7 @@
     </div>
     <app-swiper-wrapper [movies]="myFavoriteMovies"></app-swiper-wrapper>
   </div>
+</div>
+<div *ngIf="searchedMovies && searchedMovies.length > 0">
+  <app-movies-grid [sectionMovies]="searchedMovies"></app-movies-grid>
 </div>

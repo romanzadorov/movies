@@ -1,13 +1,6 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of, Subject, Subscription } from "rxjs";
-import {
-  map,
-  debounceTime,
-  catchError,
-  distinctUntilChanged,
-  mergeMap,
-} from "rxjs/operators";
+import { Subject, Subscription } from "rxjs";
 import { AppService } from '../app.service';
 
 @Component({
@@ -16,23 +9,27 @@ import { AppService } from '../app.service';
   styleUrls: ['./movies-grid.component.scss']
 })
 export class MoviesGridComponent implements OnInit, OnDestroy {
-  @ViewChild("filter", { static: false }) filter: ElementRef;
-  keyUpSubscription: Subscription;
+  @Input() sectionMovies: Array<Object>;
   latestMovies: any;
   popularMovies: any;
   comingSoonMovies: any;
   criticMovies: any;
-  sectionMovies: Array<Object>;
   sectionMoviesAlt: Array<Object>;
   section: string;
   isNotFound = false;
   getMoviesObservableSubscription: Subscription;
 
-  public keyUp = new Subject<KeyboardEvent>();
-
   constructor(private readonly appService: AppService,
     private readonly activatedRoute: ActivatedRoute,
     private router: Router) {
+      this.getMoviesObservableSubscription = this.appService.searchMoviesEmit.asObservable().subscribe(refresh => {
+        this.sectionMovies = [];
+        this.sectionMovies = refresh;
+        if (this.sectionMovies && this.sectionMovies.length === 0) {
+          this.getSectionMovies("alt");
+        }
+      });
+
       switch (this.activatedRoute.snapshot['_routerState'].url) {
         case "/movies/new-releases":
           this.section = "new-releases";
@@ -46,29 +43,16 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
         case "/movies/myfavorites":
           this.section = "myfavorites";
           break;
-        case "/movies/search":
-          this.section = "search";
-          break;
       }
   }
 
   ngOnInit() {
-    this.getSectionMovies();
-
-    this.getMoviesObservableSubscription = this.appService.searchMoviesEmit.asObservable().subscribe(refresh => {
-      this.sectionMovies = [];
-      this.sectionMovies = refresh;
-      if (this.sectionMovies && this.sectionMovies.length === 0) {
-        this.getSectionMovies("alt");
-      }
-    });
-
+    if(this.section && !this.sectionMovies){
+      this.getSectionMovies();
+    }
   }
 
   ngOnDestroy(): void {
-    if (this.keyUpSubscription) {
-    this.keyUpSubscription.unsubscribe();
-    }
     if(this.getMoviesObservableSubscription){
       this.getMoviesObservableSubscription.unsubscribe();
     }
@@ -79,11 +63,7 @@ export class MoviesGridComponent implements OnInit, OnDestroy {
       this.appService.getSectionMovies(this.section).subscribe((res) => {
         // making alternative call to display a swiper in case if no results returned from 
         // the searchMoviesEmit observable:
-        if (type && type === "alt") {
-          this.sectionMoviesAlt = this.mapMovies(res["results"]);
-        } else {
-          this.sectionMovies = this.mapMovies(res["results"]);
-        }
+        this.sectionMovies = this.mapMovies(res["results"]);
       });
     } else {
       this.sectionMovies = JSON.parse(localStorage.getItem("favoriteMovies"));

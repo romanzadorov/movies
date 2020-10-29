@@ -30,9 +30,9 @@ export class SearchComponent implements OnInit, OnDestroy {
       router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           const titleArray = this.getData(router.routerState, router.routerState.root);
-          if (titleArray[0].title !== "Search") {
-            this.filter.nativeElement.value = ""; 
-          }
+          // if (titleArray[0].title !== "Search") {
+          //   this.filter.nativeElement.value = ""; 
+          // }
         }
       })
     }
@@ -62,7 +62,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (res) => {
-          this.router.navigate([`movies/search`])
+          // this.router.navigate([`movies/search`])
           if (res && res["results"]) {
             this.sectionMovies = [];
             this.sectionMovies = this.mapMovies(res["results"]);

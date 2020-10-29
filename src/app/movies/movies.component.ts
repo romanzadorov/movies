@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AppService } from "../app.service";
 
 @Component({
@@ -13,6 +14,9 @@ export class MoviesComponent implements OnInit {
   comingSoonMovies: any = [];
   criticMovies: any = [];
   myFavoriteMovies: any = [];
+  searchedMovies: any = [];
+  getMoviesObservableSubscription: Subscription;
+
 
 
   config: any = {
@@ -59,6 +63,15 @@ export class MoviesComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
+
+    this.getMoviesObservableSubscription = this.appService.searchMoviesEmit.asObservable().subscribe(refresh => {
+      this.searchedMovies = [];
+      this.searchedMovies = refresh;
+      console.log(refresh);
+      
+    });
+
+
     this.appService.getMovies().subscribe((allMovies) => {
       this.latestMovies = this.mapMovies(allMovies[0]["results"]);
       this.popularMovies = this.mapMovies(allMovies[1]["results"]);
