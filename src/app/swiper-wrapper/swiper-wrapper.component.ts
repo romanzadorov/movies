@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-swiper-wrapper',
@@ -47,9 +49,15 @@ export class SwiperWrapperComponent implements OnInit {
     },
   };
 
-  constructor() { }
+  constructor(private readonly appService: AppService,
+    private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToMovieDetails(details) {
+    this.appService.movieDetails = details;
+    this.router.navigate([`movies/${details.id}`])
   }
 
 }

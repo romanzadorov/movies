@@ -5,11 +5,17 @@
           <!-- <div class="logo" id="basic-logo">
             <img class="img-logo" src="../assets/img/tv_200.jpeg" alt="logo">
           </div> -->
-          <div class="header-text" [routerLink]="['movies']">
-            <span class="header-text-tv">TV</span>
-            <span class="header-text-box">Box</span>
+          <div class="header-content">
+            <div class="header-text-wrapper" [routerLink]="['movies']">
+              <span class="header-text-tv">TV</span>
+              <span class="header-text-box">Box</span>
+            </div>
+            <div class="search-wrapper">
+              <app-search></app-search>
+            </div>
           </div>
-          <app-search></app-search>
+          
+         
           <span class="fill-space"></span>
           <div fxShow="true" fxHide.gt-sm="true">
             <button mat-icon-button id="menu" (click)="sidenav.toggle()">

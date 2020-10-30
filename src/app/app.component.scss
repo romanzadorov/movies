@@ -1,6 +1,14 @@
 @import "../vars.scss";
 
-.header-text {
+.header-content {
+  display: grid;
+  grid-template-areas: "header-text-wrapper search-wrapper";
+  grid-column-gap: 10px;
+  width: 400px;
+}
+
+.header-text-wrapper {
+  grid-area: header-text-wrapper;
   color: white;
   font-size: 3rem;
   font-weight: 700;
@@ -9,6 +17,11 @@
   .header-text-box {
     color: red;
   }
+}
+
+.search-wrapper {
+  grid-area: search-wrapper;
+  margin: auto;
 }
 
 .headerLinks {
@@ -30,4 +43,12 @@
 
 .sidenav-list {
   list-style: none;
+}
+
+@media (max-width: 550px) {
+  .header-content {
+    grid-template-areas:
+      "header-text-wrapper"
+      "search-wrapper";
+  }
 }
