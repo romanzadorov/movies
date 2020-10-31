@@ -730,6 +730,7 @@ let MovieDetailComponent = class MovieDetailComponent {
     getVideo(movieId) {
         this.appService.getVideo(movieId).subscribe(res => {
             this.video = res["results"][0];
+            console.log(this.video);
             this.videoLink = this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video["key"]}`);
         });
     }

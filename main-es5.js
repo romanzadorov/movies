@@ -746,6 +746,7 @@ var MovieDetailComponent = /** @class */ (function () {
         var _this = this;
         this.appService.getVideo(movieId).subscribe(function (res) {
             _this.video = res["results"][0];
+            console.log(_this.video);
             _this.videoLink = _this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + _this.video["key"]);
         });
     };
