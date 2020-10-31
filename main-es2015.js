@@ -137,7 +137,7 @@ const routes = [
     {
         path: "",
         redirectTo: "/movies",
-        pathMatch: "full"
+        pathMatch: "prefix"
     },
     {
         path: "movies",
