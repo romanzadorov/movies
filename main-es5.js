@@ -137,7 +137,7 @@ var routes = [
     {
         path: "",
         redirectTo: "/movies",
-        pathMatch: "prefix"
+        pathMatch: "full"
     },
     {
         path: "movies",
