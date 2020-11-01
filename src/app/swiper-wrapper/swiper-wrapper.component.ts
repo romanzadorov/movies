@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
@@ -9,6 +9,7 @@ import { AppService } from '../app.service';
 })
 export class SwiperWrapperComponent implements OnInit {
   @Input() movies: Array<[]>;
+  @Output() movieClickedEvent = new EventEmitter<any>();
   config: any = {
     pagination: { el: ".swiper-pagination", clickable: true },
     navigation: {
@@ -56,6 +57,7 @@ export class SwiperWrapperComponent implements OnInit {
   }
 
   goToMovieDetails(details) {
+    this.movieClickedEvent.emit(details);
     this.appService.movieDetails = details;
     this.router.navigate([`movies/${details.id}`])
   }

@@ -25,15 +25,17 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.movieId = this.activatedRoute.snapshot.params['movieId'];
+    console.log(this.movieId);
+    
     this.getMovieDetailsById(this.movieId);
-this.getSectionMovies();
+    this.getSectionMovies();
     this.innerWidth = window.innerWidth;
   }
 
   getMovieDetailsById(movieId){
     this.appService.getMovieDetailsById(movieId).subscribe(res => {
       this.movieDetails = this.mapMovie(res);
-      this.getVideo(movieId);
+      this.getVideo(this.movieId);
     });
   }
 
@@ -133,7 +135,9 @@ this.getSectionMovies();
   getVideo(movieId) {
     this.appService.getVideo(movieId).subscribe(res => {
       this.video = res["results"][0];
-      this.videoLink = this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video["key"]}`);
+      if (this.video && this.video["key"]) {
+        this.videoLink = this._sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video["key"]}`);
+      }
     });
   }
 
@@ -177,5 +181,9 @@ this.getSectionMovies();
       ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
       return result;
     });
+  }
+
+  movieClicked(movie) {
+    this.getMovieDetailsById(movie.id)
   }
 }
