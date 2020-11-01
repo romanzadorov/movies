@@ -4,7 +4,6 @@
         <div
           class="swiper-slide"
           *ngFor="let movie of movies"
-          (click)="overview(movie)"
         >
           <div class="swiper_card" (click)="goToMovieDetails(movie)">
             <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
