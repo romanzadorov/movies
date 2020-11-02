@@ -1,6 +1,6 @@
 <div class="">
     <div class="trendcard">
-        <section *ngIf="sectionMovies && sectionMovies.length > 0; else noSearchResults" class="movies-grid">
+        <section class="movies-grid" *ngIf="sectionMovies && sectionMovies.length > 0; else noSearchResults">
             <div *ngFor="let movie of sectionMovies">
                 <div  *ngIf="movie.posterPath; else noPoster" >
                     <div class="">

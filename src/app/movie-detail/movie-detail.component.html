@@ -1,4 +1,5 @@
-<div class="wrapper" *ngIf="movieDetails">
+<div class="wrapper" *ngIf="movieDetails"
+[ngStyle]="{width: innerWidth + 'px'}">
     <section class="image" *ngIf="movieDetails && movieDetails.posterPath; else noPoster">
         <img [src]="movieDetails.posterPath" />
         <ng-template #noPoster>

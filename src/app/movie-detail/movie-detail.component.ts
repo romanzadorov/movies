@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -25,8 +25,6 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.movieId = this.activatedRoute.snapshot.params['movieId'];
-    console.log(this.movieId);
-    
     this.getMovieDetailsById(this.movieId);
     this.getSectionMovies();
     this.innerWidth = window.innerWidth;
@@ -186,4 +184,11 @@ export class MovieDetailComponent implements OnInit {
   movieClicked(movie) {
     this.getMovieDetailsById(movie.id)
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+  this.innerWidth = window.innerWidth;
+}
+  //responsiveScreenWidth
+
 }

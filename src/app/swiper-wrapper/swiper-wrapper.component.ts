@@ -20,31 +20,35 @@ export class SwiperWrapperComponent implements OnInit {
     spaceBetween: 30,
     breakpoints: {
       1024: {
-        slidesPerView: 4,
+        slidesPerView: 5,
         spaceBetween: 20,
       },
       1023: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: 20,
+      },
+      813: {
+        slidesPerView: 3,
+        spaceBetween: 10,
       },
       768: {
         slidesPerView: 3,
         spaceBetween: 10,
       },
       640: {
-        slidesPerView: 2,
+        slidesPerView: 3,
         spaceBetween: 30,
       },
       490: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         spaceBetween: 10,
       },
       376: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         spaceBetween: 10,
       },
       320: {
-        slidesPerView: 1,
+        slidesPerView: 2,
         spaceBetween: 10,
       },
     },

@@ -174,3 +174,291 @@ swiper {
 }
 
 // ================================================================
+
+@media screen and (min-width: 1171px) {
+}
+
+@media screen and (max-width: 1025px) {
+  swiper {
+    height: 300px;
+    width: 200px;
+  }
+
+  .swiper_card {
+    height: 360px;
+  }
+
+  .swiper_pic {
+    height: 260px;
+    width: inherit;
+    img {
+      width: inherit;
+    }
+  }
+
+  //=============================================================
+
+  .movies-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+
+    .card {
+      height: 393px;
+      max-width: fit-content;
+      margin: auto;
+    }
+  }
+
+  .movies-grid img {
+    width: inherit;
+    max-height: 300px;
+  }
+
+  .movie_content {
+    padding-top: 5px;
+  }
+
+  .movieTitle {
+    max-width: fit-content;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+}
+
+@media screen and (max-width: 813px) {
+}
+
+@media screen and (max-width: 769px) {
+  swiper {
+    height: 300px;
+    width: 200px;
+  }
+
+  .swiper_card {
+    height: 390px;
+  }
+
+  .swiper_pic {
+    height: 310px;
+    width: inherit;
+    img {
+      width: inherit;
+    }
+  }
+
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  swiper {
+    height: 300px;
+    width: 200px;
+  }
+
+  .swiper_card {
+    height: 300px;
+  }
+
+  .swiper_pic {
+    height: 210px;
+    width: inherit;
+    img {
+      width: inherit;
+    }
+  }
+
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  swiper {
+    height: 300px;
+    width: 200px;
+  }
+
+  .swiper_card {
+    height: 200px;
+  }
+
+  .swiper_pic {
+    height: 145px;
+    width: inherit;
+    img {
+      width: inherit;
+    }
+  }
+
+  // ==============================
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .trendcard {
+    padding: 0;
+  }
+
+  .movies-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(142px, 2fr));
+
+    .card {
+      height: 330px;
+      max-width: fit-content;
+      margin: auto;
+    }
+  }
+
+  .movies-grid img {
+    width: inherit;
+    max-height: 270px;
+  }
+
+  .movie_content {
+    padding-top: 5px;
+  }
+
+  .movieTitle {
+    max-width: fit-content;
+  }
+
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  swiper {
+    height: 300px;
+    width: 200px;
+  }
+
+  .swiper_card {
+    height: 180px;
+  }
+
+  .swiper_pic {
+    height: 125px;
+    width: inherit;
+    img {
+      width: inherit;
+    }
+  }
+
+  //=============================================================
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .trendcard {
+    padding: 0;
+  }
+
+  .movies-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(142px, 2fr));
+
+    .card {
+      height: 290px;
+      max-width: fit-content;
+      margin: auto;
+    }
+  }
+
+  .movies-grid img {
+    width: inherit;
+    max-height: 240px;
+  }
+
+  .movie_content {
+    padding-top: 5px;
+  }
+
+  .movieTitle {
+    max-width: fit-content;
+  }
+
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  //=============================================================
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .trendcard {
+    padding: 0;
+  }
+
+  .movies-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 2fr));
+
+    .card {
+      height: 270px;
+      max-width: fit-content;
+      margin: auto;
+    }
+  }
+
+  .movies-grid img {
+    width: inherit;
+    max-height: 214px;
+  }
+
+  .movie_content {
+    padding-top: 5px;
+  }
+
+  .movieTitle {
+    max-width: fit-content;
+  }
+
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 280px) {
+  // ==============================
+  //Detail page:
+  .wrapper {
+    .image {
+      width: inherit;
+    }
+  }
+}

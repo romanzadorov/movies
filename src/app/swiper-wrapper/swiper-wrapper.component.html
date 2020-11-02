@@ -6,7 +6,7 @@
           *ngFor="let movie of movies"
         >
           <div class="swiper_card" (click)="goToMovieDetails(movie)">
-            <div *ngIf="movie.posterPath; else noPoster" class="swiper_pic">
+            <div class="swiper_pic" *ngIf="movie.posterPath; else noPoster">
               <img [src]="movie.posterPath" />
             </div>
             <ng-template #noPoster>
