@@ -93,7 +93,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       let result = Object.assign({}, movie);
       result["posterPath"] = movie.poster_path
         ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}?api_key=${this.appService.omdbKey}`
-        : `../assets/img/tv_200.jpeg`;
+        : `assets/img/tv_200.jpeg`;
       result[
         "overviewPath"
       ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;

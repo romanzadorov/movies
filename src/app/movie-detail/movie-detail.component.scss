@@ -30,6 +30,22 @@
   grid-gap: 20px;
   color: white;
   padding: 1rem;
+  width: inherit;
+  .info-row {
+    width: inherit;
+    .genres {
+      overflow-wrap: break-word;
+    }
+    .summary-info {
+      width: inherit;
+      .summary-header {
+        width: inherit;
+      }
+      .summary-details {
+        word-wrap: break-word;
+      }
+    }
+  }
 }
 
 .genres {
@@ -112,5 +128,15 @@
 
   img {
     // width: inherit !important;
+  }
+}
+
+@media (max-width: 412px) {
+  .wrapper {
+  }
+
+  .info {
+    width: 380px;
+    padding: 0;
   }
 }

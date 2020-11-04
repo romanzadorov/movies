@@ -2,12 +2,12 @@
     <div class="trendcard">
         <section class="movies-grid" *ngIf="sectionMovies && sectionMovies.length > 0; else noSearchResults">
             <div *ngFor="let movie of sectionMovies">
-                <div  *ngIf="movie.posterPath; else noPoster" >
+                <div *ngIf="movie.posterPath; else noPoster">
                     <div class="">
                         <div class="card" (click)="goToMovieDetails(movie)">
-                            <img [src]="movie.posterPath"/>
+                            <img [src]="movie.posterPath" />
                             <ng-template #noPoster>
-                                <img [src]="src/assets/img/tv_200.jpeg" />
+                                <img [src]="movie.posterPath" />
                             </ng-template>
                             <span class="movie_content">
                                 <h3 class="movieTitle">{{ movie.title }}</h3>
@@ -18,9 +18,9 @@
             </div>
         </section>
         <ng-template #noSearchResults>
-            <h3 class="no_results_message">Bummer - we couldn't find what you were looking for, but we thought you might like these.</h3>
+            <h3 class="no_results_message">Bummer - we couldn't find what you were looking for, but we thought you might
+                like these.</h3>
             <app-swiper-wrapper [movies]="sectionMovies"></app-swiper-wrapper>
         </ng-template>
     </div>
 </div>
-

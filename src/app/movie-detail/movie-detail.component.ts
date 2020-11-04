@@ -30,7 +30,7 @@ export class MovieDetailComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  getMovieDetailsById(movieId){
+  getMovieDetailsById(movieId) {
     this.appService.getMovieDetailsById(movieId).subscribe(res => {
       this.movieDetails = this.mapMovie(res);
       this.getVideo(this.movieId);
@@ -41,40 +41,40 @@ export class MovieDetailComponent implements OnInit {
     let result = Object.assign({}, movie);
     result["posterPath"] = movie.poster_path
       ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}?api_key=${this.appService.omdbKey}`
-      : `../assets/img/tv_200.jpeg`;
+      : "assets/img/frink.png";
     result["overviewPath"] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
     result["releaseYear"] = movie.release_date.split("-")[0];
-    
+
     const runtime = movie.runtime.toString();
     let runTimeHours = 0;
     let runTimeMinutes = 0;
     if (runtime && runtime.length) {
       const hour_1 = 60;
       const remainder = movie.runtime - hour_1;
-      const remainder_2 = movie.runtime - hour_1*2;
-      const remainder_3 = movie.runtime - hour_1*3;
+      const remainder_2 = movie.runtime - hour_1 * 2;
+      const remainder_3 = movie.runtime - hour_1 * 3;
 
-      if(remainder_3 && remainder_3 >= 0){
+      if (remainder_3 && remainder_3 >= 0) {
         runTimeHours = 3;
         runTimeMinutes = remainder_3;
-      } else if(remainder_2 && remainder_2 >= 0){
+      } else if (remainder_2 && remainder_2 >= 0) {
         runTimeHours = 2;
         runTimeMinutes = remainder_2;
-      } else if(remainder && remainder >= 0){
+      } else if (remainder && remainder >= 0) {
         runTimeHours = 1;
         runTimeMinutes = remainder;
-      } else if(remainder && remainder < 0){
+      } else if (remainder && remainder < 0) {
         runTimeHours = 0;
         runTimeMinutes = movie.runtime;
       }
-      
+
       result["runTime"] = `${runTimeHours}h ${runTimeMinutes}m`;
     }
 
 
     let favoriteMovies = new Array();
     favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
-    
+
     if (favoriteMovies && favoriteMovies.length > 0) {
       favoriteMovies.forEach(item => {
         if (item.id === result.id) {
@@ -93,22 +93,22 @@ export class MovieDetailComponent implements OnInit {
     let favoriteMovies = new Array();
     favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies"));
     if (favoriteMovies && favoriteMovies.length > 0) {
-        // if found, returns the country object, else returns undefined
-        let existingMovie = favoriteMovies.find(
-          (movie) => movie["id"] === movieDetails.id
-        );
+      // if found, returns the country object, else returns undefined
+      let existingMovie = favoriteMovies.find(
+        (movie) => movie["id"] === movieDetails.id
+      );
 
-        // if it's a new city, add it.
-        if (!existingMovie) {
-          favoriteMovies.push(movieDetails);
-          localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
-        }
+      // if it's a new city, add it.
+      if (!existingMovie) {
+        favoriteMovies.push(movieDetails);
+        localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+      }
     } else {
       favoriteMovies = [];
       favoriteMovies.push(movieDetails);
       localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
     }
-    
+
   }
 
   removeFromFavorites(movieDetails) {
@@ -126,8 +126,8 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
-  getIsFavorite(movieDetails){
-    return  this.movieDetails["isFavorite"];
+  getIsFavorite(movieDetails) {
+    return this.movieDetails["isFavorite"];
   }
 
   getVideo(movieId) {
@@ -147,22 +147,22 @@ export class MovieDetailComponent implements OnInit {
 
     let relativeWidth = (this.innerWidth * 80) / 100; // take up to 80% of the screen size
     if (this.innerWidth > 1500) {
-      relativeWidth = (1500 * 80 ) / 100;
+      relativeWidth = (1500 * 80) / 100;
     } else {
-      relativeWidth = (this.innerWidth * 80 ) / 100;
+      relativeWidth = (this.innerWidth * 80) / 100;
     }
 
     const relativeHeight = (relativeWidth * 9) / 16 + 120; // 16:9 to which we add 120 px for the dialog action buttons ("close")
     dialogConfig.width = relativeWidth + 'px';
     dialogConfig.height = relativeHeight + 'px';
     dialogConfig.panelClass = "custom-modalbox";
- 
+
     const dialogRef = this.dialog.open(VideoDialogComponent, dialogConfig);
 
     dialogRef.componentInstance.videoLink = this.videoLink;
   }
 
-  getSectionMovies(){
+  getSectionMovies() {
     this.appService.getSectionMovies("popular").subscribe((res) => {
       this.recommendedMovies = this.mapMovies(res["results"]);
     });
@@ -173,7 +173,7 @@ export class MovieDetailComponent implements OnInit {
       let result = Object.assign({}, movie);
       result["posterPath"] = movie.poster_path
         ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}?api_key=${this.appService.omdbKey}`
-        : `../assets/img/tv_200.jpeg`;
+        : `assets/img/frink.png`;
       result[
         "overviewPath"
       ] = `https://image.tmdb.org/t/p/w200/${movie.backdrop_path}?api_key=${this.appService.omdbKey}`;
@@ -187,8 +187,8 @@ export class MovieDetailComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-  this.innerWidth = window.innerWidth;
-}
+    this.innerWidth = window.innerWidth;
+  }
   //responsiveScreenWidth
 
 }
