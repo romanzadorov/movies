@@ -27,7 +27,7 @@ export class MovieDetailComponent implements OnInit {
     this.movieId = this.activatedRoute.snapshot.params['movieId'];
     this.getMovieDetailsById(this.movieId);
     this.getSectionMovies();
-    this.innerWidth = window.innerWidth;
+    this.innerWidth = window.innerWidth - 25;
   }
 
   getMovieDetailsById(movieId) {
@@ -187,7 +187,7 @@ export class MovieDetailComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.innerWidth = window.innerWidth;
+    this.innerWidth = window.innerWidth - 25;
   }
   //responsiveScreenWidth
 

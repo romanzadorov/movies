@@ -1,20 +1,27 @@
 <div class="wrapper" *ngIf="movieDetails" [ngStyle]="{width: innerWidth + 'px'}">
     <section class="image" *ngIf="movieDetails && movieDetails.posterPath">
-        <img [src]="movieDetails.posterPath" />
-    </section>
-    <section class="info" *ngIf="movieDetails">
-        <div class="info-row">
+        <div class="info-row" *ngIf="innerWidth <= 700">
             <div class="movie-title">
                 <h1>{{movieDetails.title}}</h1>
             </div>
         </div>
-        <div class=" info-row">
+        <img [src]="movieDetails.posterPath" />
+    </section>
+    <section class="info" *ngIf="movieDetails">
+        <div class="info-row" *ngIf="innerWidth > 700">
+            <div class="movie-title">
+                <h1>{{movieDetails.title}}</h1>
+            </div>
+        </div>
+        <div class="info-row info-row-details">
             <div class="year-info" *ngIf="movieDetails && movieDetails.releaseYear && movieDetails.runTime">
                 <h2>{{movieDetails.releaseYear}} | {{movieDetails.runTime}}</h2>
             </div>
             <div class="genres">
                 <h2>Genres</h2>
-                <span class="genre" *ngFor="let genre of movieDetails.genres">{{genre.name.toUpperCase()}}</span>
+                <div class="genres-items">
+                    <span class="genre" *ngFor="let genre of movieDetails.genres">{{genre.name.toUpperCase()}}</span>
+                </div>
             </div>
             <div class="add-and-play-block">
                 <div class="favorites">
@@ -34,6 +41,8 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="info-2" *ngIf="movieDetails">
         <div class="info-row">
             <div class="summary-info">
                 <h2 class="summary-header">Summary</h2>
