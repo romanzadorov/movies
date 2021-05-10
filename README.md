@@ -2,32 +2,26 @@
 
 ## Development
 
-Used the following sources:
-https://www.npmjs.com/package/ngx-useful-swiper
-https://idangero.us/swiper/demos/
+Since I learned there was a nice public API "https://api.themoviedb.org/", I started thinking about creating something similar to Redbox movies website.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+The main highlights of the project:
 
-## Development server
+- To get data I used "The Movie DB" for developers ("https://developers.themoviedb.org/")
+- forkJoin and Subject from "rxjs"
+- localStorage to store movies a user selected as Preferred
+- CSS global variables to set main colors of the application
+- Swiper slider
+- To provide responsiveness, I used mobile-first approach with media-queries, so that the page would be compatible on all screen resolutions and all layouts.
+- For the Search mechanism, Used the following "rxjs operators"
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  - map,
+  - debounceTime,
+  - catchError,
+  - distinctUntilChanged,
+  - mergeMap
 
-## Code scaffolding
+- Used the following sources:
+  - https://www.npmjs.com/package/ngx-useful-swiper
+  - https://idangero.us/swiper/demos/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Of course, my project doesn't have everything that Redbox has, but I think the result came out really great. Though, there is no limit to perfection :)
