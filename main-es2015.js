@@ -41,7 +41,7 @@ module.exports = "<header class=\"\" role=\"banner\">\n    <div class=\"\">\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer id=\"main-footer\">Copyright &copy; 2020</footer>\n"
+module.exports = "<footer id=\"main-footer\">Copyright &copy; 2021</footer>\n"
 
 /***/ }),
 
